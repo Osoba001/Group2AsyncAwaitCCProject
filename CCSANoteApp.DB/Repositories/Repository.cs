@@ -1,5 +1,6 @@
 ﻿using CCSANoteApp.Domain;
 using NHibernate;
+using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,53 +11,53 @@ namespace CCSANoteApp.DB.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
+        private readonly ISession _session;
+
         public Repository(SessionFactory sessionFactory)
         {
             _session = sessionFactory.GetSession();
         }
-
-        public void Add(T obj)
+        public async Task<bool> Add(T entity)
         {
-            _session.Save(obj);
-            Commit();
+            await _session.SaveAsync(entity);
+            return await Commit();
+
         }
 
-        public T? GetById(Guid id)
+        public async Task<bool> Delete(T entity)
         {
-            var model = _session.Query<T>().FirstOrDefault(x => x.Id.Equals(id));
-            return model;
+            await _session.DeleteAsync(entity);
+            return await Commit();
         }
 
-        public List<T> GetAll()
+        public async Task<bool> DeleteById(Guid id)
         {
-            var collection = _session.Query<T>().ToList();
-            return collection;
-        }
-
-        public void Delete(T obj)
-        {
-            _session.Delete(obj);
-            Commit();
-        }
-
-        public void DeleteById(Guid id)
-        {
-            var model = GetById(id);
-
-            if (model != null)
+            var ent = await _session.Query<T>().FirstOrDefaultAsync(x => x.Id == id);
+            if (ent != null)
             {
-                _session.Delete(model);
-                Commit();
+                await _session.DeleteAsync(ent);
+                return await Commit();
             }
+            return false;
         }
 
-        public void Update(T obj)
+        public IQueryable<T> GetAll()
         {
-            _session.Update(obj);
-            Commit();
+            return _session.Query<T>();
         }
 
-        protected bool Commit()
+        public IQueryable<T>? GetById(Guid id)
+        {
+            return _session.Query<T>().Where(x => x.Id == id);
+        }
+
+        public async Task<bool> Update(T entity)
+        {
+            await _session.UpdateAsync(entity);
+            return await Commit();
+        }
+
+        protected async Task<bool> Commit()
         {
             using var transction = _session.BeginTransaction();
             try
@@ -64,7 +65,7 @@ namespace CCSANoteApp.DB.Repositories
                 if (transction.IsActive)
                 {
                     _session.Flush();
-                    transction.Commit();
+                    await transction.CommitAsync();
                 }
                 return true;
             }
@@ -74,8 +75,5 @@ namespace CCSANoteApp.DB.Repositories
                 return false;
             }
         }
-
-
-        protected readonly ISession _session;
     }
 }

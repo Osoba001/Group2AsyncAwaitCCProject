@@ -9,12 +9,13 @@ namespace CCSANoteApp.DB
 {
     public class SessionFactory
     {
-        public SessionFactory(/*DBConfiguration config*/)
+        private readonly string _conString;
+        public SessionFactory(string conString)
         {
+            _conString = conString;
             if (_sessionFactory is null)
             {
-                //_sessionFactory = BuildSessionFactory(config.ConnectionString);
-                _sessionFactory = BuildSessionFactory(_connecttionString);
+                _sessionFactory = BuildSessionFactory(_conString);
             }
         }
 
@@ -34,6 +35,7 @@ namespace CCSANoteApp.DB
             return configuration.BuildSessionFactory();
         }
 
-        private readonly string _connecttionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\Users\\Murphy\\Documents\\Backup\\Documents\\Software Academy\\CCSA_Web\\NotesAppDB.mdf;Integrated Security=True;Connect Timeout=30";
+        
+        
     }
 }

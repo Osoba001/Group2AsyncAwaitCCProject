@@ -9,12 +9,12 @@ namespace CCSANoteApp.DB.Repositories
 {
     public interface IRepository<T> where T : BaseEntity
     {
-        void Add(T obj);
-        T? GetById(Guid id);
-        List<T> GetAll();
-        void Update(T obj);
-        void Delete(T obj);
-        void DeleteById(Guid id);
-        
+        Task<bool> Add(T entity);
+        IQueryable<T>? GetById(Guid id);
+        IQueryable<T> GetAll();
+        Task<bool> Update(T entity);
+        Task<bool> Delete(T entity);
+        Task<bool> DeleteById(Guid id);
+
     }
 }
