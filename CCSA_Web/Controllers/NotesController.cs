@@ -13,10 +13,11 @@ namespace CCSA_Web.Controllers
         {
             NoteService = databaseService;
         }
+
         [HttpPost("create-note")]
-        public IActionResult CreateNote([FromBody] NoteDto note)
+        public async Task<IActionResult> CreateNote([FromBody] NoteDto note)
         {
-            NoteService.CreateNote(note.creatorUserId,note.Title, note.Content, note.GroupName);
+            NoteService.CreateNote(note.creatorUserId, note.Title, note.Content, note.GroupName);
             return Ok("Created Successfully");
         }
 
