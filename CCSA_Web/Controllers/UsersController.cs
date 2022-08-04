@@ -51,7 +51,7 @@ namespace CCSA_Web.Controllers
         public async Task<IActionResult> UpdateEmail(Guid id, string email)
         {
             
-            return Ok(await UserService.UpdateUserEmail(id, email););
+            return Ok(await UserService.UpdateUserEmail(id, email));
         }
 
         [HttpPut("updatename")]

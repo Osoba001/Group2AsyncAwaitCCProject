@@ -12,13 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<SessionFactory>(x => new SessionFactory(builder.Configuration.GetConnectionString("defaultConnection")));
 
-builder.Services.AddScoped<INoteService,NoteService>();
-builder.Services.AddScoped<IUserService,UserService>();
+
+builder.Services.AddTransient<INoteService, NoteService>();
+builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<NoteRepository>();
-builder.Services.AddSingleton<SessionFactory>();
+
+builder.Services.AddSingleton<SessionFactory>(x => new SessionFactory(builder.Configuration.GetConnectionString("defaultConnection")));
 
 var app = builder.Build();
 

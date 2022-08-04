@@ -402,6 +402,33 @@
           }
         }
       },
+      "Stub.System.Data.SQLite.Core.NetStandard/1.0.116": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/System.Data.SQLite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/System.Data.SQLite.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/SQLite.Interop.dll": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/SQLite.Interop.dll": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-x64/native/SQLite.Interop.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/SQLite.Interop.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -509,6 +536,12 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "System.Data.SQLite.Core/1.0.116": {
+        "type": "package",
+        "dependencies": {
+          "Stub.System.Data.SQLite.Core.NetStandard": "[1.0.116]"
         }
       },
       "System.Diagnostics.Debug/4.3.0": {
@@ -1484,6 +1517,7 @@
         "dependencies": {
           "CCSANoteApp.Domain": "1.0.0",
           "FluentNHibernate": "3.1.0",
+          "System.Data.SQLite.Core": "1.0.116",
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
@@ -2059,6 +2093,27 @@
         "version.txt"
       ]
     },
+    "Stub.System.Data.SQLite.Core.NetStandard/1.0.116": {
+      "sha512": "VEe/vzvn2ECKovtyb+nf8fsnNQ4EYOUms7gnp9729NN7FSR/0v/uVoBDO7DETzV7YCquRVwRnSnYuoOwAoTEKA==",
+      "type": "package",
+      "path": "stub.system.data.sqlite.core.netstandard/1.0.116",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/System.Data.SQLite.dll",
+        "lib/netstandard2.0/System.Data.SQLite.dll.altconfig",
+        "lib/netstandard2.0/System.Data.SQLite.xml",
+        "lib/netstandard2.1/System.Data.SQLite.dll",
+        "lib/netstandard2.1/System.Data.SQLite.dll.altconfig",
+        "lib/netstandard2.1/System.Data.SQLite.xml",
+        "runtimes/linux-x64/native/SQLite.Interop.dll",
+        "runtimes/osx-x64/native/SQLite.Interop.dll",
+        "runtimes/win-x64/native/SQLite.Interop.dll",
+        "runtimes/win-x86/native/SQLite.Interop.dll",
+        "stub.system.data.sqlite.core.netstandard.1.0.116.nupkg.sha512",
+        "stub.system.data.sqlite.core.netstandard.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -2408,6 +2463,17 @@
         "system.data.sqlclient.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.Data.SQLite.Core/1.0.116": {
+      "sha512": "djwmo97syWCpUPJbDS0e2qUFUa8cDLeIfMotVkaRkAC5gpfBSZLMzvoLkLp1prY8waAuH1jEC3wcB2ymVVQWtA==",
+      "type": "package",
+      "path": "system.data.sqlite.core/1.0.116",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "system.data.sqlite.core.1.0.116.nupkg.sha512",
+        "system.data.sqlite.core.nuspec"
       ]
     },
     "System.Diagnostics.Debug/4.3.0": {
@@ -5457,11 +5523,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.Infrastructure\\CCSANoteApp.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.Infrastructure\\CCSANoteApp.Infrastructure.csproj",
       "projectName": "CCSANoteApp.Infrastructure",
-      "projectPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.Infrastructure\\CCSANoteApp.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.Infrastructure\\CCSANoteApp.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5484,11 +5550,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.DB\\CCSANoteApp.DB.csproj": {
-              "projectPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.DB\\CCSANoteApp.DB.csproj"
+            "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.DB\\CCSANoteApp.DB.csproj": {
+              "projectPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.DB\\CCSANoteApp.DB.csproj"
             },
-            "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.Domain\\CCSANoteApp.Domain.csproj": {
-              "projectPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\notes-app-master\\CCSANoteApp.Domain\\CCSANoteApp.Domain.csproj"
+            "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.Domain\\CCSANoteApp.Domain.csproj": {
+              "projectPath": "C:\\Users\\dell\\Desktop\\BackEnd\\NotePad\\CCGroupAsyncAwait\\Group2AsyncAwaitCCProject\\CCSANoteApp.Domain\\CCSANoteApp.Domain.csproj"
             }
           }
         }
