@@ -15,14 +15,14 @@ namespace CCSANoteApp.Infrastructure
             _userRepository = userRepository;
         }
 
-        public async Task CreateNote(Note note)
+        public async Task<bool> CreateNote(Note note)
         {
-            await _noteRepository.Add(note);
+            return await _noteRepository.Add(note);
         }
 
-        public async Task CreateNote(Guid creatorUserId, string title, string content, GroupName groupName)
+        public async Task<bool> CreateNote(Guid creatorUserId, string title, string content, GroupName groupName)
         {
-            var creator = await _userRepository.GetById(creatorUserId);
+            var creator =  _userRepository.GetById(creatorUserId);
             var note = new Note
             {
                 Title = title,
@@ -33,26 +33,28 @@ namespace CCSANoteApp.Infrastructure
             await _noteRepository.Add(note);
         }
 
-        public async Task DeleteNote(Guid id)
+        public async Task<bool> DeleteNote(Guid id)
         {
-            var note = await _noteRepository.GetById(id);
-            if (note != null)
-            {
-               await _noteRepository.Delete(note);
-            }
+            var note =  _noteRepository.GetById(id);
+            
+            
+               return await _noteRepository.Delete(note);
+            
+
         }
 
-        public async Task DeleteNote(List<Guid> noteIds)
+        public async Task<bool> DeleteNote(List<Guid> noteIds)
         {
             foreach (var id in noteIds)
             {
                 await DeleteNote(id);
             }
+            return true;
         }
 
-        public async Task<List<FetchNoteDto>> FetchNote()
+        public async Task<IQueryable<FetchNoteDto>> FetchNote()
         {
-            var notes = await _noteRepository.GetAll();
+            var notes = _noteRepository.GetAll();
             var result = new List<FetchNoteDto>();
             foreach (var note in notes)
             {
@@ -66,47 +68,47 @@ namespace CCSANoteApp.Infrastructure
                     UpdatedDate = note.UpdatedDate
                 });
             }
-            return result;
+            return result.AsQueryable();
         }
 
-        public async Task<List<Note>> FetchUserNotesByGroup(Guid userId, GroupName groupName)
+        public async Task<IQueryable<Note>> FetchUserNotesByGroup(Guid userId, GroupName groupName)
         {
-            var _notes = await _noteRepository.FetchUserNotesByGroup(userId, groupName);
-            return _notes;
+            var _notes =  _noteRepository.FetchUserNotesByGroup(userId, groupName);
+            return _notes.AsQueryable();
         }
 
-        public async Task<Note> FetchNoteById(Guid id)
+        public async Task<IQueryable<Note>> FetchNoteById(Guid id)
         {
-            var note = await _noteRepository.GetById(id);
+            var note =  _noteRepository.GetById(id);
             return note;
         }
 
-        public async Task<List<Note>> FetchNoteByUser(Guid creatorId)
+        public async Task<IQueryable<Note>> FetchNoteByUser(Guid creatorId)
         {
-            var notes = await _noteRepository.FetchUserNotes(creatorId);
-            return notes;
+            var notes = _noteRepository.FetchUserNotes(creatorId);
+            return notes.AsQueryable();
         }
 
-        public async Task UpdateNote(Guid id, string title, string content, GroupName group)
+        public async Task<bool> UpdateNote(Guid id, string title, string content, GroupName group)
         {
-            var _note = await _noteRepository.GetById(id);
-            if (_note != null)
-            {
-                _note.Title = title;
-                _note.Content = content;
-                _note.GroupName = group;
-                await _noteRepository.Update(_note);
-            }
+            var _note = _noteRepository.GetById(id);
+            
+           
+                //_note.Title = title;
+                //_note.Content = content;
+                //_note.GroupName = group;
+                return await _noteRepository.Update(_note);
+            
         }
 
-        public async Task UpdateNoteTitle(Guid id, string title)
+        public async Task<bool> UpdateNoteTitle(Guid id, string title)
         {
-            var _note = await _noteRepository.GetById(id);
-            if (_note != null)
-            {
-                _note.Title = title;
-                await _noteRepository.Update(_note);
-            }
+            var _note =  _noteRepository.GetById(id);
+            
+            
+                //.Title = title;
+                return await _noteRepository.Update(_note);
+            
         }
 
     }

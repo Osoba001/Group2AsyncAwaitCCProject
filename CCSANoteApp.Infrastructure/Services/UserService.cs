@@ -11,9 +11,9 @@ namespace CCSANoteApp.Infrastructure
             _userRepository = userRepository;
         }
 
-        public async Task CreateUser(string username, string email, string password)
+        public async Task<bool> CreateUser(string username, string email, string password)
         {
-            await _userRepository.Add(new User
+            return await _userRepository.Add(new User
             {
                 Email = email,
                 Username = username,
@@ -21,36 +21,32 @@ namespace CCSANoteApp.Infrastructure
             });
         }
 
-        public async Task CreateUser(User user)
+        public async Task<bool> CreateUser(User user)
         {
-            await _userRepository.Add(user);
+           return await _userRepository.Add(user);
         }
 
-        public async Task DeleteUser(Guid id)
+        public async Task<bool> DeleteUser(Guid id)
         {
-            await _userRepository.DeleteById(id);
+            return await _userRepository.DeleteById(id);
         }
 
-        public async Task<UserDto> GetUser(Guid id)
+        public async Task<IQueryable<User>> GetUser(Guid id)
         {
             //Refactor to add user notes
-            var user = await _userRepository.GetById(id);
+            var user =  _userRepository.GetById(id);
 
-            var result = new UserDto
-            {
-                Username = user.Username,
-                Email = user.Email
-            };
-            return result;
+            
+            return user;
         }
 
-        public async Task<List<User>> GetUsers()
+        public async Task<IQueryable<User>> GetUsers()
         {
             //Refactor
-            return await _userRepository.GetAll();
+            return _userRepository.GetAll();
         }
 
-        public async Task UpdateUserEmail(Guid id, string email)
+        public async Task<bool> UpdateUserEmail(Guid id, string email)
         {
             //var user = GetUser(id);
             //if (user != null)
@@ -58,9 +54,10 @@ namespace CCSANoteApp.Infrastructure
             //    user.Email = email;
             //    _userRepository.Update(user);
             //}
+            return true;
         }
 
-        public async Task UpdateUserName(Guid id, string name)
+        public async Task<bool> UpdateUserName(Guid id, string name)
         {
             //var user = GetUser(id);
             //if (user != null)
@@ -68,6 +65,8 @@ namespace CCSANoteApp.Infrastructure
             //    user.Username = name;
             //    _userRepository.Update(user);
             //}
+            return true;
         }
+        
     }
 }
