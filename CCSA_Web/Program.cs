@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddSingleton(builder.Configuration.GetSection(nameof(DBConfiguration)).Get<DBConfiguration>());
+builder.Services.AddSingleton<SessionFactory>(x => new SessionFactory(builder.Configuration.GetConnectionString("defaultConnection")));
 
 builder.Services.AddScoped<INoteService,NoteService>();
 builder.Services.AddScoped<IUserService,UserService>();
