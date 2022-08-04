@@ -1,5 +1,6 @@
 ﻿using CCSANoteApp.DB.Repositories;
 using CCSANoteApp.Domain;
+using NHibernate.Linq;
 
 namespace CCSANoteApp.Infrastructure
 {
@@ -11,9 +12,9 @@ namespace CCSANoteApp.Infrastructure
             _userRepository = userRepository;
         }
 
-        public void CreateUser(string username, string email, string password)
+        public async Task<bool> CreateUser(string username, string email, string password)
         {
-            _userRepository.Add(new User
+            return await _userRepository.Add(new User
             {
                 Email = email,
                 Username = username,
@@ -21,20 +22,20 @@ namespace CCSANoteApp.Infrastructure
             });
         }
 
-        public void CreateUser(User user)
+        public async Task<bool> CreateUser(User user)
         {
-            _userRepository.Add(user);
+           return await _userRepository.Add(user);
         }
 
-        public void DeleteUser(Guid id)
+        public async Task<bool> DeleteUser(Guid id)
         {
-            _userRepository.DeleteById(id);
+           return await _userRepository.DeleteById(id);
         }
 
-        public UserDto GetUser(Guid id)
+        public async Task<UserDto> GetUser(Guid id)
         {
             //Refactor to add user notes
-            var user = _userRepository.GetById(id);
+            var user = await _userRepository.GetById(id).FirstOrDefaultAsync();
 
             var result = new UserDto
             {
@@ -44,14 +45,15 @@ namespace CCSANoteApp.Infrastructure
             return result;
         }
 
-        public List<User> GetUsers()
+        public async Task<List<User>> GetUsers()
         {
             //Refactor
-            return _userRepository.GetAll();
+            return await _userRepository.GetAll().ToListAsync();
         }
 
-        public void UpdateUserEmail(Guid id, string email)
+        public async Task<bool> UpdateUserEmail(Guid id, string email)
         {
+            throw new NotImplementedException();
             //var user = GetUser(id);
             //if (user != null)
             //{
@@ -60,8 +62,9 @@ namespace CCSANoteApp.Infrastructure
             //}
         }
 
-        public void UpdateUserName(Guid id, string name)
+        public async Task<bool> UpdateUserName(Guid id, string name)
         {
+            throw new NotImplementedException();
             //var user = GetUser(id);
             //if (user != null)
             //{

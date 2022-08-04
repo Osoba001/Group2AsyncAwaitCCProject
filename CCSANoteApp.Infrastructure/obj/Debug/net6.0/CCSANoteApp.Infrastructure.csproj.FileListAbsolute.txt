@@ -15,3 +15,20 @@ E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp
 E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp.Infrastructure\obj\Debug\net6.0\ref\CCSANoteApp.Infrastructure.dll
 E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.DB.dll
 E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.DB.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.Infrastructure.deps.json
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.Infrastructure.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.Infrastructure.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.DB.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.Domain.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.DB.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\bin\Debug\net6.0\CCSANoteApp.Domain.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.AssemblyInfo.cs
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.csproj.CopyComplete
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\refint\CCSANoteApp.Infrastructure.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\CCSANoteApp.Infrastructure.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Infrastructure\obj\Debug\net6.0\ref\CCSANoteApp.Infrastructure.dll
