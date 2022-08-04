@@ -15,45 +15,50 @@ namespace CCSA_Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUser(string username, string email, string password)
+        public async Task<IActionResult> CreateUser(string username, string email, string password)
         {
-            UserService.CreateUser(username,  email, password);
-            return Ok("User Created Successfully");
+            
+            return Ok(await UserService.CreateUser(username, email, password));
         }
+
         [HttpPost("byUser")]
-        public IActionResult CreateUser([FromBody] UserDto user)
+        public async Task<IActionResult> CreateUser([FromBody] UserDto user)
         {
-            UserService.CreateUser(user.Username, user.Email, user.Password);
-            return Ok("User Created Successfully");
+            
+            return Ok(await UserService.CreateUser(user.Username, user.Email, user.Password));
         }
+
         [HttpDelete("{id}")]
-        public IActionResult DeleteUser(Guid id)
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
-            UserService.DeleteUser(id);
-            return Ok("User Deleted Successfully");
+            
+            return Ok(await UserService.DeleteUser(id));
         }
+
         [HttpGet("user/{id}")]
-        public IActionResult GetUser(Guid id)
+        public async Task<IActionResult> GetUser(Guid id)
         {
-            return Ok(UserService.GetUser(id));
+            return Ok(await UserService.GetUser(id));
         }
 
         [HttpGet]
-        public IActionResult GetUsers()
+        public async Task<IActionResult> GetUsers()
         {
-            return Ok(UserService.GetUsers());
+            return Ok(await UserService.GetUsers());
         }
+
         [HttpPut("updateemail")]
-        public IActionResult UpdateEmail(Guid id, string email)
+        public async Task<IActionResult> UpdateEmail(Guid id, string email)
         {
-            UserService.UpdateUserEmail(id, email);
-            return Ok("Updated Successfully");
+            
+            return Ok(await UserService.UpdateUserEmail(id, email););
         }
+
         [HttpPut("updatename")]
-        public IActionResult UpdateName(Guid id, string name)
+        public async Task<IActionResult> UpdateName(Guid id, string name)
         {
-            UserService.UpdateUserName(id, name);
-            return Ok("Updated Successfully");
+            
+            return Ok(await UserService.UpdateUserName(id, name));
         }
     }
 }
