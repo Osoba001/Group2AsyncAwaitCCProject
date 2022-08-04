@@ -5,14 +5,14 @@ namespace CCSANoteApp.Infrastructure
 {
     public interface INoteService
     {
-        void CreateNote(Note note);
-        void CreateNote(Guid creatorUserId, string title, string content,GroupName groupName);
-        void UpdateNoteTitle(Guid id, string title);
-        void DeleteNote(Guid id);
-        void DeleteNote(List<Guid> notes);
-        List<FetchNoteDto> FetchNote();
-        List<Note> FetchNoteByUser(Guid id);
-        Note FetchNoteById(Guid id);
-        List<Note> FetchUserNotesByGroup(Guid userId, GroupName groupName);
+        Task CreateNote(Note note);
+        Task CreateNote(Guid creatorUserId, string title, string content,GroupName groupName);
+        Task UpdateNoteTitle(Guid id, string title);
+        Task DeleteNote(Guid id);
+        Task DeleteNote(List<Guid> notes);
+        Task<List<FetchNoteDto>> FetchNote();
+        Task<List<Note>> FetchNoteByUser(Guid id);
+        Task<Note> FetchNoteById(Guid id);
+        Task<List<Note>> FetchUserNotesByGroup(Guid userId, GroupName groupName);
     }
 }
