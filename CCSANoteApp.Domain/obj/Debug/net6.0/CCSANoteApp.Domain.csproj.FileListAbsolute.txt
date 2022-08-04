@@ -10,3 +10,15 @@ E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp
 E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp.Domain\obj\Debug\net6.0\refint\CCSANoteApp.Domain.dll
 E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.pdb
 E:\Users\Murphy\Documents\Backup\Documents\Software Academy\CCSA_Web\CCSANoteApp.Domain\obj\Debug\net6.0\ref\CCSANoteApp.Domain.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\bin\Debug\net6.0\CCSANoteApp.Domain.deps.json
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\bin\Debug\net6.0\CCSANoteApp.Domain.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\bin\Debug\net6.0\CCSANoteApp.Domain.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.AssemblyInfo.cs
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\refint\CCSANoteApp.Domain.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\CCSANoteApp.Domain.pdb
+C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSANoteApp.Domain\obj\Debug\net6.0\ref\CCSANoteApp.Domain.dll

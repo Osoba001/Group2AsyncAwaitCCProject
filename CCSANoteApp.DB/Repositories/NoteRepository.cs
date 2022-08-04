@@ -1,23 +1,27 @@
 ﻿using CCSANoteApp.Domain;
+using NHibernate;
+using NHibernate.Linq;
 
 namespace CCSANoteApp.DB.Repositories
 {
     public class NoteRepository : Repository<Note>
     {
+        private readonly ISession _session;
         public NoteRepository(SessionFactory sessionFactory) : base(sessionFactory)
         {
+            _session=sessionFactory.GetSession();
         }
 
-        public List<Note> FetchUserNotesByGroup(Guid userId, GroupName groupName)
+        public async Task<List<Note>> FetchUserNotesByGroup(Guid userId, GroupName groupName)
         {
             var notes = _session.Query<Note>().Where(x => x.NoteCreator.Id == userId && x.GroupName == groupName);
-            return notes.ToList();
+            return await notes.ToListAsync();
         }
 
-        public List<Note> FetchUserNotes(Guid userId)
+        public Task<List<Note>> FetchUserNotes(Guid userId)
         {
             var notes = _session.Query<Note>().Where(x => x.NoteCreator.Id == userId);
-            return notes.ToList();
+            return notes.ToListAsync();
         }
     }
 }

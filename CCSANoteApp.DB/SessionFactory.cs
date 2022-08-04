@@ -26,7 +26,7 @@ namespace CCSANoteApp.DB
         private ISessionFactory BuildSessionFactory(string connectionString)
         {
             FluentConfiguration configuration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
+                .Database(SQLiteConfiguration.Standard.ConnectionString(connectionString))
                 .Mappings(m => m.FluentMappings.AddFromAssembly(typeof(NoteMap).Assembly))
                 .ExposeConfiguration(cfg =>
                 {
