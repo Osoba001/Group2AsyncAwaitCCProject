@@ -17,52 +17,52 @@ namespace CCSA_Web.Controllers
         [HttpPost("create-note")]
         public async Task<IActionResult> CreateNote([FromBody] NoteDto note)
         {
-            NoteService.CreateNote(note.creatorUserId, note.Title, note.Content, note.GroupName);
-            return Ok("Created Successfully");
+            //NoteService.CreateNote(note.creatorUserId, note.Title, note.Content, note.GroupName);
+
+            return Ok(await NoteService.CreateNote(note.creatorUserId, note.Title, note.Content, note.GroupName));
         }
 
         
         [HttpDelete]
-        public IActionResult DeleteNote(Guid id)
+        public async Task<IActionResult> DeleteNote(Guid id)
         {
-            NoteService.DeleteNote(id);
-            return Ok("Deleted Successfully");
+            return Ok(await NoteService.DeleteNote(id));
         }
 
         [HttpDelete("multiple")]
-        public IActionResult DeleteNote([FromBody]List<Guid> noteIds)
+        public async Task<IActionResult> DeleteNote([FromBody]List<Guid> noteIds)
         {
-            NoteService.DeleteNote(noteIds);
-            return Ok("Deleted Successfully");
+            
+            return Ok(await NoteService.DeleteNote(noteIds));
         }
         [HttpGet("note")]
-        public IActionResult FetchNote()
+        public async Task<IActionResult> FetchNote()
         {
-            return Ok(NoteService.FetchNote());
+            return Ok(await NoteService.FetchNote());
         }
         [HttpGet("note-group")]
-        public IActionResult FetchNoteByGroup(Guid userId, GroupName groupName)
+        public async Task<IActionResult> FetchNoteByGroup(Guid userId, GroupName groupName)
         {
-            return Ok(NoteService.FetchUserNotesByGroup(userId,groupName));
+            return Ok(await NoteService.FetchUserNotesByGroup(userId,groupName));
         }
 
         [HttpGet("by-id/{id}")]
-        public IActionResult FetchNoteById(Guid id)
+        public async Task<IActionResult> FetchNoteById(Guid id)
         {
-            return Ok(NoteService.FetchNoteById(id));
+            return Ok(await NoteService.FetchNoteById(id));
         }
 
         [HttpGet("by-user/{id}")]
-        public IActionResult FetchNoteByUser(Guid id)
+        public async Task<IActionResult> FetchNoteByUser(Guid id)
         {
-            return Ok(NoteService.FetchNoteByUser(id));
+            return Ok(await NoteService.FetchNoteByUser(id));
         }
 
         [HttpPut("title")]
-        public IActionResult UpdateNoteTitle(Guid id, string title)
+        public async Task<IActionResult> UpdateNoteTitle(Guid id, string title)
         {
-            NoteService.UpdateNoteTitle(id, title);
-            return Ok("Updated Successfully");
+            
+            return Ok(await NoteService.UpdateNoteTitle(id, title));
         }
     }
 }
