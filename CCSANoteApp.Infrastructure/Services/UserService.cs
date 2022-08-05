@@ -36,34 +36,45 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<FetchUserDto> GetUser(Guid id)
         {
-            //Refactor to add user notes
             var user = await _userRepository.GetById(id);
 
             var result = new FetchUserDto
             {
-                
                 Username = user.Username,
                 Email = user.Email, 
             };
+            result.UserNotes = CreateNoteList(user);
+            return result;
+        }
+        private List<FetchNoteDto> CreateNoteList(User user)
+        {
+            List<FetchNoteDto> result = new ();
             foreach (var note in user.Notes)
             {
-                result.UserNotes.Add( new FetchNoteDto() {
-                    Content=note.Content, CreatedDate=note.CreatedDate,
-                GroupName=note.GroupName,Title=note.Title,UpdatedDate=note.UpdatedDate});
+                result.Add(new FetchNoteDto()
+                {
+                    Content = note.Content,
+                    CreatedDate = note.CreatedDate,
+                    GroupName = note.GroupName,
+                    Title = note.Title,
+                    UpdatedDate = note.UpdatedDate
+                });
             }
             return result;
         }
-
         public async Task<List<FetchUserDto>> GetUsers()
         {
             //Refactor
             var users= await _userRepository.GetAll();
-            List<FetchUserDto> _user=new List<FetchUserDto>();
+            List<FetchUserDto> _users = new();
+            var _user = new FetchUserDto();
             foreach (var user in users)
             {
-                _user.Add(new FetchUserDto() { Email = user.Email, Username = user.Username, UserId=user.Id });
+                _user = new FetchUserDto() { Email = user.Email, Username = user.Username, UserId = user.Id };
+                _user.UserNotes = CreateNoteList(user);
+                _users.Add(_user);
             }
-            return _user;
+            return _users;
         }
 
         public async Task<bool> UpdateUserEmail(Guid id, string email)
