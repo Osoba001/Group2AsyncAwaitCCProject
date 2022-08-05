@@ -23,7 +23,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<bool> CreateNote(Guid creatorUserId, string title, string content, GroupName groupName)
         {
-            var creator = await _userRepository.GetById(creatorUserId).FirstOrDefaultAsync();
+            var creator = await _userRepository.GetById(creatorUserId);
             var note = new Note
             {
                 Title = title,
@@ -36,7 +36,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<bool> DeleteNote(Guid id)
         {
-            var note =await _noteRepository.GetById(id).FirstOrDefaultAsync();
+            var note =await _noteRepository.GetById(id);
             if (note != null)
             {
              return await _noteRepository.Delete(note);
@@ -59,7 +59,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<List<FetchNoteDto>> FetchNote()
         {
-            var notes = await _noteRepository.GetAll().ToListAsync();
+            var notes = await _noteRepository.GetAll();
             var result = new List<FetchNoteDto>();
             foreach (var note in notes)
             {
@@ -67,11 +67,14 @@ namespace CCSANoteApp.Infrastructure
                 {
                     Content = note.Content,
                     CreatedDate = note.CreatedDate,
-                    creatorUserId = note.NoteCreator.Id,
+                    CreatorUserId = note.NoteCreator != null ? note.NoteCreator.Id : null,
                     GroupName = note.GroupName,
                     Title = note.Title,
-                    UpdatedDate = note.UpdatedDate
-                });
+                    UpdatedDate = note.UpdatedDate,
+                    NoteId = note.Id
+
+                }) ;
+
             }
             return result;
         }
@@ -84,7 +87,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<Note> FetchNoteById(Guid id)
         {
-           return await _noteRepository.GetById(id).FirstOrDefaultAsync();
+           return await _noteRepository.GetById(id);
             
             
         }
@@ -96,7 +99,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<bool> UpdateNote(Guid id, string title, string content, GroupName group)
         {
-            var _note =await _noteRepository.GetById(id).FirstOrDefaultAsync();
+            var _note =await _noteRepository.GetById(id);
             if (_note != null)
             {
                 _note.Title = title;
@@ -109,7 +112,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<bool> UpdateNoteTitle(Guid id, string title)
         {
-            var _note =await _noteRepository.GetById(id).FirstOrDefaultAsync();
+            var _note =await _noteRepository.GetById(id);
             if (_note != null)
             {
                 _note.Title = title;

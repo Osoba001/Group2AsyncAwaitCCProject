@@ -21,7 +21,6 @@ namespace CCSANoteApp.DB.Repositories
         {
             await _session.SaveAsync(entity);
             return await Commit();
-
         }
 
         public async Task<bool> Delete(T entity)
@@ -35,20 +34,21 @@ namespace CCSANoteApp.DB.Repositories
             var ent = await _session.Query<T>().FirstOrDefaultAsync(x => x.Id == id);
             if (ent != null)
             {
-                await _session.DeleteAsync(ent);
+                 _session.Delete(ent);
                 return await Commit();
+
             }
             return false;
         }
 
-        public IQueryable<T> GetAll()
+        public async Task<List<T>> GetAll()
         {
-            return _session.Query<T>();
+            return await _session.Query<T>().ToListAsync();
         }
 
-        public IQueryable<T>? GetById(Guid id)
+        public async Task<T>? GetById(Guid id)
         {
-            return _session.Query<T>().Where(x => x.Id == id);
+            return await _session.Query<T>().FirstOrDefaultAsync(x=>x.Id==id);
         }
 
         public async Task<bool> Update(T entity)

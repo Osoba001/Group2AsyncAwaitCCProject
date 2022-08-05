@@ -124,7 +124,6 @@ C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSA_Web\obj\Debug\net6.0
 C:\Users\dell\Desktop\BackEnd\NotePad\notes-app-master\CCSA_Web\bin\Debug\net6.0\NoteDB.db
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\appsettings.json
-C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\NoteDB.db
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\CCSA_Web.exe
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\CCSA_Web.deps.json
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\CCSA_Web.runtimeconfig.json
@@ -176,3 +175,4 @@ C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProjec
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\obj\Debug\net6.0\CCSA_Web.pdb
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\obj\Debug\net6.0\CCSA_Web.genruntimeconfig.cache
 C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\obj\Debug\net6.0\ref\CCSA_Web.dll
+C:\Users\dell\Desktop\BackEnd\NotePad\CCGroupAsyncAwait\Group2AsyncAwaitCCProject\CCSA_Web\bin\Debug\net6.0\NoteDB.db

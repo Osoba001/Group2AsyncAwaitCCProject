@@ -1,5 +1,6 @@
 ﻿using CCSANoteApp.DB.Repositories;
 using CCSANoteApp.Domain;
+using CCSANoteApp.Domain.DTOs;
 using NHibernate.Linq;
 
 namespace CCSANoteApp.Infrastructure
@@ -14,6 +15,7 @@ namespace CCSANoteApp.Infrastructure
 
         public async Task<bool> CreateUser(string username, string email, string password)
         {
+
             return await _userRepository.Add(new User
             {
                 Email = email,
@@ -32,23 +34,36 @@ namespace CCSANoteApp.Infrastructure
            return await _userRepository.DeleteById(id);
         }
 
-        public async Task<UserDto> GetUser(Guid id)
+        public async Task<FetchUserDto> GetUser(Guid id)
         {
             //Refactor to add user notes
-            var user = await _userRepository.GetById(id).FirstOrDefaultAsync();
+            var user = await _userRepository.GetById(id);
 
-            var result = new UserDto
+            var result = new FetchUserDto
             {
+                
                 Username = user.Username,
-                Email = user.Email
+                Email = user.Email, 
             };
+            foreach (var note in user.Notes)
+            {
+                result.UserNotes.Add( new FetchNoteDto() {
+                    Content=note.Content, CreatedDate=note.CreatedDate,
+                GroupName=note.GroupName,Title=note.Title,UpdatedDate=note.UpdatedDate});
+            }
             return result;
         }
 
-        public async Task<List<User>> GetUsers()
+        public async Task<List<FetchUserDto>> GetUsers()
         {
             //Refactor
-            return await _userRepository.GetAll().ToListAsync();
+            var users= await _userRepository.GetAll();
+            List<FetchUserDto> _user=new List<FetchUserDto>();
+            foreach (var user in users)
+            {
+                _user.Add(new FetchUserDto() { Email = user.Email, Username = user.Username, UserId=user.Id });
+            }
+            return _user;
         }
 
         public async Task<bool> UpdateUserEmail(Guid id, string email)

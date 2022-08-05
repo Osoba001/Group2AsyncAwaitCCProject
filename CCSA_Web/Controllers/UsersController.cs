@@ -38,7 +38,8 @@ namespace CCSA_Web.Controllers
         [HttpGet("user/{id}")]
         public async Task<IActionResult> GetUser(Guid id)
         {
-            return Ok(await UserService.GetUser(id));
+          var user=  await UserService.GetUser(id);
+            return Ok(user);
         }
 
         [HttpGet]

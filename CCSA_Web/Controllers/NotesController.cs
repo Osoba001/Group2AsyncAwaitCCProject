@@ -15,11 +15,10 @@ namespace CCSA_Web.Controllers
         }
 
         [HttpPost("create-note")]
-        public async Task<IActionResult> CreateNote([FromBody] NoteDto note)
+        public async Task<IActionResult> CreateNote([FromBody]NoteDto note)
         {
-            //NoteService.CreateNote(note.creatorUserId, note.Title, note.Content, note.GroupName);
+            return Ok(await NoteService.CreateNote(note.CreatorUserId, note.Title, note.Content, note.GroupName));
 
-            return Ok(await NoteService.CreateNote(note.creatorUserId, note.Title, note.Content, note.GroupName));
         }
 
         

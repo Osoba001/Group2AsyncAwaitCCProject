@@ -1,4 +1,5 @@
 ﻿using CCSANoteApp.Domain;
+using CCSANoteApp.Domain.DTOs;
 
 namespace CCSANoteApp.Infrastructure
 {
@@ -9,7 +10,7 @@ namespace CCSANoteApp.Infrastructure
         Task<bool> UpdateUserName(Guid id, string name);
         Task<bool> UpdateUserEmail(Guid id, string email);
         Task<bool> DeleteUser(Guid id);
-        Task<UserDto> GetUser(Guid id);
-        Task<List<User>> GetUsers();
+        Task<FetchUserDto> GetUser(Guid id);
+        Task<List<FetchUserDto>> GetUsers();
     }
 }

@@ -9,7 +9,7 @@ namespace CCSANoteApp.DB.Repositories
         private readonly ISession _session;
         public NoteRepository(SessionFactory sessionFactory) : base(sessionFactory)
         {
-            _session=sessionFactory.GetSession();
+           
         }
 
         public async Task<List<Note>> FetchUserNotesByGroup(Guid userId, GroupName groupName)
